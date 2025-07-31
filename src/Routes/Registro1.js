@@ -9,26 +9,26 @@ function Registro1(){
         <>
             <h3>1 TIPO DE REGISTRO</h3>
             <NumberInput/>
-            <h3>CUIT AGENTE DE RETENCION</h3>
+            <h3>2 CUIT AGENTE DE RETENCION</h3>
             <NumberInput/>
-            <h3>PERIODO INFORMADO</h3>
+            <h3>3 PERIODO INFORMADO</h3>
             <Dateinput/>
-            <h3>SECUENCIA</h3>
+            <h3>4 SECUENCIA</h3>
             <NumberInput/>
-            <h3>CODIGO DE IMPUESTO</h3>
+            <h3>5 CODIGO DE IMPUESTO</h3>
             <NumberInput/>
-            <h3>CODIGO DE CONCEPTO</h3>
+            <h3>6 CODIGO DE CONCEPTO</h3>
             <NumberInput/>
-            <h3>NUMERO DE FORMULARIO</h3>
+            <h3>7 NUMERO DE FORMULARIO</h3>
             <NumberInput/>
-            <h3>TIPO DE PRESENTACION</h3>
+            <h3>8 TIPO DE PRESENTACION</h3>
             <SelectInput>
                 <OptionInput/>
                 <OptionInput/>
                 <OptionInput/>
                 <OptionInput/>
             </SelectInput>
-            <h3>VERSION DEL SISTEMA</h3>
+            <h3>9 VERSION DEL SISTEMA</h3>
             <NumberInput/>
         </>
     )

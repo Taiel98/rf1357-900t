@@ -1,0 +1,47 @@
+import React from "react";
+
+function Registro4(){
+    return(
+        <>
+        <h3>1 TIPO DE REGISTRO</h3>
+        <h3>2 CUIL</h3>
+        <h3>3 APORTE JUBILATORIO, RETIROS, PENSIONES O SUBSIDIOS</h3>
+        <h3>4 OTROS EMPLEOS - APORTE JUBILATORIO, RETIROS, PENSIONES O SUBSIDIOS</h3>
+        <h3>5 APORTE OBRA SOCIAL</h3>
+        <h3>6 APORTE OBRA SOCIAL OTROS EMPLEOS</h3>
+        <h3>7 CUOTA SINDICAL</h3>
+        <h3>8 CUOTA SINDICAL OTROS EMPLEOS</h3>
+        <h3>9 CUOTAS MÉDICO ASISTENCIALES</h3>
+        <h3>10 PRIMAS DE SEGURO PARA EL CASO DE MUERTE</h3>
+        <h3>11 SEGUROS MUERTE / MIXTOS SUJETAS AL CONTROL DE LA SSN</h3>
+        <h3>12 SEGURO DE RETIRO PRIVADOS - SUJETAS AL CONTROL DE LA SSN</h3>
+        <h3>13 ADQUISICIÓN DE CUOTAPARTES DE FCI CON FINES DE RETIRO</h3>
+        <h3>14 GASTOS DE SEPELIO</h3>
+        <h3>15 GTOS AMORT E INT RODADO CORREDORES Y VIAJANTES DE COMERCIO</h3>
+        <h3>16 DONAC. FISCOS NAC./PROV./MUN./INST. ARTICULO 26 INCISO E) Y F) LIG</h3>
+        <h3>17 DATOS OBLIGATORIOS POR LEY NACIONAL, PROVINCIAL O MUNICIPAL</h3>
+        <h3>18 HONORARIOS SERVICIO ASISTENCIA SANITARIA, MÉDICA Y PARAMÉDICA</h3>
+        <h3>19 INTERESES CRÉDITOS HIPOTECARIOS</h3>
+        <h3>20 AP. CAP. SOC. /FONDO DE RIESGO DE SOCIOS PROTECTORES DE SGR</h3>
+        <h3>21 Otras Deducciones - CAJAS COMPLEMENTARIAS DE PREVISIÓN</h3>
+        <h3>22 ALQUILERES DE INMUEBLES DESTINADOS A SU CASA HABITACIÓN</h3>
+        <h3>23 EMPLEADOS DEL SERVICIO DOMESTICO</h3>
+        <h3>24 GTOS MOV./VIÁTICOS ABONADOS POR EL EMPLEADOR</h3>
+        <h3>25 INDUMENTARIA/EQUIPAMIENTO - USO EXCLUSIVO - CARÁCTER OBLIGATORIO</h3>
+        <h3>26 OTRAS DEDUCCIONES</h3>
+        <h3>27 TOTAL DEDUCCIONES GENERALES</h3>
+        <h3>28 Otras Deducciones - Aportes para Jubilaciones, Retiros y Subsidios ANSeS</h3>
+        <h3>29 Otras Deducciones - Cajas Provinciales o Municipales o de Previsión para Profesionales</h3>
+        <h3>30 Otras Deducciones - Actores - Retribución pagada a los representantes - RG 2442/08</h3>
+        <h3>31 Otras Deducciones - Fondos Compensadores de Previsión</h3>
+        <h3>32 SERVICIOS EDUCATIVOS Y LAS HERRAMIENTAS DESTINADAS A ESOS EFECTOS</h3>
+        <h3>33 GTOS MOV. ABONADOS POR EL EMPLEADOR</h3>
+        <h3>34 GTOS. VIÁTICOS ABONADOS POR EL EMPLEADOR</h3>
+        <h3>35 COMPENSACIÓN ANÁLOGA</h3>
+        <h3>36 Cantidad Compensación análoga</h3>
+        <h3>37 ALQUILERES DE INMUEBLES DESTINADOS A SU CASA HABITACIÓN - Articulo 85 inciso k) (10%)</h3>
+        </>
+    )
+}
+
+export default Registro4;
