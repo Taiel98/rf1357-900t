@@ -4,6 +4,8 @@ import NumberInput from "../Components/NumberInput";
 function Registro4(){
     return(
         <>
+        <h2>REGISTRO 4</h2>
+        <br/>
         <h1>DEDUCCIONES</h1>
         <br/>
         <h3>1 TIPO DE REGISTRO</h3>
@@ -80,6 +82,7 @@ function Registro4(){
         <NumberInput/>
         <h3>37 ALQUILERES DE INMUEBLES DESTINADOS A SU CASA HABITACIÓN - Articulo 85 inciso k) (10%)</h3>
         <NumberInput/>
+        <br/>
         </>
     )
 }

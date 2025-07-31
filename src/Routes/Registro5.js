@@ -4,6 +4,8 @@ import NumberInput from "../Components/NumberInput";
 function Registro5(){
     return(
         <>
+            <h2>REGISTRO 5</h2>
+            <br/>
             <h1>DEDUCCIONES</h1>
             <br/>
             <h3>1 TIPO DE REGISTRO</h3>
@@ -50,6 +52,7 @@ function Registro5(){
             <NumberInput/>
             <h3>22 CANTIDAD DE HIJOS ENTRE 18 Y 24 AÑOS - EDUCACIÓN al 100%</h3>
             <NumberInput/>
+            <br/>
         </>
     )
 }

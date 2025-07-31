@@ -13,6 +13,8 @@ function Registro1(){
 
     return(
         <>
+            <h2>REGISTRO 1</h2>
+            <br/>
             <h1>CABECERA ENCRIPTADA</h1>
             <br/>
             <h3>1 TIPO DE REGISTRO</h3>
@@ -48,6 +50,7 @@ function Registro1(){
             
             <h3>9 VERSION DEL SISTEMA</h3>
             <NumberInput value="00900" readOnly={true} />
+            <br/>
         </>
     )
 }

@@ -6,6 +6,8 @@ import OptionInput from "../Components/OptionInput";
 function Registro6(){
     return(
         <>
+        <h2>REGISTRO 6</h2>
+        <br/>
         <h1>CALCULO DE IMPUESTO</h1>
         <br/>
         <h3>1 TIPO DE REGISTRO</h3>
@@ -68,6 +70,7 @@ function Registro6(){
         <NumberInput/>
         <h3>19 PAGOS A CUNETA - Resolución General (AFIP) 3819/2015 - Cancelaciones en Efectivo - Servicios de transporte terrestre, aéreo y por vía acuática de pasajeros con destino fuera del país</h3>
         <NumberInput/>
+        <br/>
         </>
     )
 }

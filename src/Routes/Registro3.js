@@ -4,6 +4,8 @@ import NumberInput from "../Components/NumberInput";
 function Registro3(){
     return(
         <>
+            <h2>REGISTRO 3</h2>
+            <br/>
             <h1>REMUNERACIONES</h1>
             <br/>
             <h3>1 TIPO DE REGISTRO</h3>
@@ -140,6 +142,7 @@ function Registro3(){
             <NumberInput/>
             <h3>67 REMUNERACIÓN OTROS EMPLEOS - COMPENSACIÓN ANÁLOGOS REMUNERACIÓN GRAVADA</h3>
             <NumberInput/>
+            <br/>
         </>
     )
 }
