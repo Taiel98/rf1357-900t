@@ -1,37 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import NumberInput from '../Components/NumberInput';
-import Dateinput from "../Components/DateInput"
+import DateInput from "../Components/DateInput"
 import SelectInput from "../Components/SelectInput";
 import OptionInput from "../Components/OptionInput";
 
 function Registro1(){
+    const [tipoPresentacion, setTipoPresentacion] = useState('');
+
+    const handleSelectChange = (e) => {
+        setTipoPresentacion(e.target.value);
+    };
+
     return(
         <>
             <h1>CABECERA ENCRIPTADA</h1>
             <br/>
             <h3>1 TIPO DE REGISTRO</h3>
-            <NumberInput/>
+            <NumberInput value="01" readOnly={true} />
+            
             <h3>2 CUIT AGENTE DE RETENCION</h3>
-            <NumberInput/>
+            <NumberInput maxLength={11}/>
+            
             <h3>3 PERIODO INFORMADO</h3>
-            <Dateinput/>
+            <DateInput />
+            
             <h3>4 SECUENCIA</h3>
-            <NumberInput/>
+            <NumberInput value="00" maxLength={2}/>
+            
             <h3>5 CODIGO DE IMPUESTO</h3>
-            <NumberInput/>
+            <NumberInput value="0103" readOnly={true} />
+            
             <h3>6 CODIGO DE CONCEPTO</h3>
-            <NumberInput/>
+            <NumberInput value="215" readOnly={true} />
+            
             <h3>7 NUMERO DE FORMULARIO</h3>
-            <NumberInput/>
+            <NumberInput value="1357" readOnly={true} />
+            
             <h3>8 TIPO DE PRESENTACION</h3>
-            <SelectInput>
-                <OptionInput/>
-                <OptionInput/>
-                <OptionInput/>
-                <OptionInput/>
+            <SelectInput value={tipoPresentacion} onChange={handleSelectChange}>
+                <OptionInput value="" label="Seleccionar..." />
+                <OptionInput value="1" label="ANUAL" />
+                <OptionInput value="2" label="FINAL" />
+                <OptionInput value="3" label="INFORMATIVA" />
+                <OptionInput value="4" label="ANUAL -> DISTRACTO ENERO - MARZO" />
             </SelectInput>
+            
+            
             <h3>9 VERSION DEL SISTEMA</h3>
-            <NumberInput/>
+            <NumberInput value="00900" readOnly={true} />
         </>
     )
 }

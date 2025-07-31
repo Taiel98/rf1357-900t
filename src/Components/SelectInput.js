@@ -1,8 +1,16 @@
 import React from "react";
 
 function SelectInput(props) {
-    <select name={props} id={props}>
-
-    </select>
+    return (
+        <select 
+            name={props.name} 
+            id={props.id}
+            value={props.value || ''}
+            onChange={props.onChange}
+        >
+            {props.children}
+        </select>
+    )
 }
-export default SelectInput;
+
+export default SelectInput
