@@ -3,6 +3,8 @@ import React from "react";
 function Registro3(){
     return(
         <>
+            <h1>REMUNERACIONES</h1>
+            <br/>
             <h3>1 TIPO DE REGISTRO</h3>
             <h3>2 CUIL</h3>
             <h3>3 REMUNERACIÓN BRUTA GRAVADA</h3>

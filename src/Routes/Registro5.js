@@ -3,6 +3,8 @@ import React from "react";
 function Registro5(){
     return(
         <>
+            <h1>DEDUCCIONES</h1>
+            <br/>
             <h3>1 TIPO DE REGISTRO</h3>
             <h3>2 CUIL</h3>
             <h3>3 GANANCIA NO IMPONIBLE</h3>

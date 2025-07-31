@@ -7,6 +7,8 @@ import OptionInput from "../Components/OptionInput";
 function Registro1(){
     return(
         <>
+            <h1>CABECERA ENCRIPTADA</h1>
+            <br/>
             <h3>1 TIPO DE REGISTRO</h3>
             <NumberInput/>
             <h3>2 CUIT AGENTE DE RETENCION</h3>
