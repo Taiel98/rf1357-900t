@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Registro1 from './Routes/Registro1';
+import Registro2 from './Routes/Registro2';
+import Registro3 from './Routes/Registro3';
+import Registro4 from './Routes/Registro4';
+import Registro5 from './Routes/Registro5';
+import Registro6 from './Routes/Registro6';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +18,12 @@ root.render(
       <Routes>
         <Route path='/' element={<App/>}>
           <Route index element={<Registro1/>}/>
+          <Route path='Registro1' element={<Registro1/>}/>
+          <Route path='Registro2' element={<Registro2/>}/>
+          <Route path='Registro3' element={<Registro3/>}/>
+          <Route path='Registro4' element={<Registro4/>}/>
+          <Route path='Registro5' element={<Registro5/>}/>
+          <Route path='Registro6' element={<Registro6/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
