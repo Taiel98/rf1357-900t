@@ -129,6 +129,7 @@ function Registro2(){
                 /> No
             </label>
             <br/>
+            <hr/>
         </>
     )
 }

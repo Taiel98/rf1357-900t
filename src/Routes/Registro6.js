@@ -73,6 +73,7 @@ function Registro6(){
         <h3>19 PAGOS A CUENTA - Resolución General (AFIP) 3819/2015 - Cancelaciones en Efectivo - Servicios de transporte terrestre, aéreo y por vía acuática de pasajeros con destino fuera del país</h3>
         <NumberInput maxLength={15} registro="registro6" field="pagosACuentaTransporte"/>
         <br/>
+        <hr/>
         </>
     )
 }

@@ -143,6 +143,7 @@ function Registro3(){
             <h3>67 REMUNERACIÓN OTROS EMPLEOS - COMPENSACIÓN ANÁLOGOS REMUNERACIÓN GRAVADA</h3>
             <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosCompensacionAnalogosGravada"/>
             <br/>
+            <hr/>
         </>
     )
 }

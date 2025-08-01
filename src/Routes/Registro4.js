@@ -83,6 +83,7 @@ function Registro4(){
         <h3>37 ALQUILERES DE INMUEBLES DESTINADOS A SU CASA HABITACIÓN - Articulo 85 inciso k) (10%)</h3>
         <NumberInput maxLength={15} registro="registro4" field="alquileresInmueblesArticulo85"/>
         <br/>
+        <hr/>
         </>
     )
 }

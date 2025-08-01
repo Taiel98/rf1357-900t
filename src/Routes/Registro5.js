@@ -53,6 +53,7 @@ function Registro5(){
             <h3>22 CANTIDAD DE HIJOS ENTRE 18 Y 24 AÑOS - EDUCACIÓN al 100%</h3>
             <NumberInput maxLength={2} registro="registro5" field="cantidadHijos18a24Educacion100"/>
             <br/>
+            <hr/>
         </>
     )
 }

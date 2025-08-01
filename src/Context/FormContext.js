@@ -17,7 +17,8 @@ export const FormProvider = ({ children }) => {
       cuitAgente: '',
       periodoInformado: '',
       secuencia: '00',
-      tipoPresentacion: ''
+      tipoPresentacion: '',
+      cantidadTrabajadores: ''
     },
     // Registro 2
     registro2: {

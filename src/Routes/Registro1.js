@@ -43,7 +43,10 @@ function Registro1(){
             
             <h3>9 VERSION DEL SISTEMA</h3>
             <NumberInput value="00900" readOnly={true} />
+            <h2>CANTIDAD DE TRABAJADORES</h2>
+            <input type="number" maxLength={3} registro="registro1" field="cantidadTrabajadores"/>
             <br/>
+            <hr/>
         </>
     )
 }
