@@ -10,6 +10,7 @@ import Registro3 from './Routes/Registro3';
 import Registro4 from './Routes/Registro4';
 import Registro5 from './Routes/Registro5';
 import Registro6 from './Routes/Registro6';
+import Trabajadores from './Routes/Trabajadores';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
           <Route path='Registro4' element={<Registro4/>}/>
           <Route path='Registro5' element={<Registro5/>}/>
           <Route path='Registro6' element={<Registro6/>}/>
+          <Route path='Trabajadores' element={<Trabajadores/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

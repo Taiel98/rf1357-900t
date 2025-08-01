@@ -3,6 +3,7 @@ import NumberInput from '../Components/NumberInput';
 import DateInput from "../Components/DateInput"
 import SelectInput from "../Components/SelectInput";
 import OptionInput from "../Components/OptionInput";
+import { Link } from "react-router-dom";
 
 function Registro1(){
     return(
@@ -44,7 +45,10 @@ function Registro1(){
             <h3>9 VERSION DEL SISTEMA</h3>
             <NumberInput value="00900" readOnly={true} />
             <h2>CANTIDAD DE TRABAJADORES</h2>
-            <input type="number" maxLength={3} registro="registro1" field="cantidadTrabajadores"/>
+            <form>
+                <input type="number" maxLength={3} registro="registro1" field="cantidadTrabajadores"/>
+                <button><Link to=""></Link></button>
+            </form>
             <br/>
             <hr/>
         </>
