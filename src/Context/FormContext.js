@@ -181,13 +181,34 @@ export const FormProvider = ({ children }) => {
   });
 
   const updateFormData = (registro, field, value) => {
-    setFormData(prev => ({
-      ...prev,
-      [registro]: {
-        ...prev[registro],
-        [field]: value
+    setFormData(prev => {
+      // Si se está actualizando el campo CUIL, sincronizarlo en todos los registros
+      if (field === 'cuil') {
+        const newFormData = { ...prev };
+        // Actualizar el CUIL en todos los registros que lo tienen
+        const registrosConCuil = ['registro2', 'registro3', 'registro4', 'registro5', 'registro6'];
+        
+        registrosConCuil.forEach(reg => {
+          if (newFormData[reg]) {
+            newFormData[reg] = {
+              ...newFormData[reg],
+              cuil: value
+            };
+          }
+        });
+        
+        return newFormData;
+      } else {
+        // Actualización normal para otros campos
+        return {
+          ...prev,
+          [registro]: {
+            ...prev[registro],
+            [field]: value
+          }
+        };
       }
-    }));
+    });
   };
 
   const getFieldValue = (registro, field) => {
