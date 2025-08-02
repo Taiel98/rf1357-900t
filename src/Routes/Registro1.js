@@ -47,7 +47,7 @@ function Registro1(){
             <h2>CANTIDAD DE TRABAJADORES</h2>
             <form>
                 <input type="number" maxLength={3} registro="registro1" field="cantidadTrabajadores"/>
-                <button><Link to=""></Link></button>
+                <Link to="Trabajadores"><button>Iniciar</button></Link>
             </form>
             <br/>
             <hr/>
