@@ -9,7 +9,7 @@ function SelectInput(props) {
         
         // Actualizar el contexto si tenemos registro/field
         if (props.registro && props.field) {
-            updateFormData(props.registro, props.field, value);
+            updateFormData(props.registro, props.field, value, props.numeroTrabajador);
         }
         
         // Llamar al onChange del padre si existe
@@ -23,7 +23,7 @@ function SelectInput(props) {
         if (!props.registro || !props.field) {
             return props.value || '';
         }
-        return getFieldValue(props.registro, props.field) || props.value || '';
+        return getFieldValue(props.registro, props.field, props.numeroTrabajador) || props.value || '';
     };
 
     return (

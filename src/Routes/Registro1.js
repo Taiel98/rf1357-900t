@@ -46,8 +46,8 @@ function Registro1(){
             <NumberInput value="00900" readOnly={true} />
             <h2>CANTIDAD DE TRABAJADORES</h2>
             <form>
-                <input type="number" maxLength={3} registro="registro1" field="cantidadTrabajadores"/>
-                <Link to="Trabajadores"><button>Iniciar</button></Link>
+                <NumberInput maxLength={3} registro="registro1" field="cantidadTrabajadores"/>
+                <Link to="Trabajadores"><button type="button">Iniciar</button></Link>
             </form>
             <br/>
             <hr/>

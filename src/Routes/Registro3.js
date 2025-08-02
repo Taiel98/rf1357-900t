@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import NumberInput from "../Components/NumberInput";
+import { useFormContext } from "../Context/FormContext";
 
 function Registro3(){
+    const { numeroTrabajador } = useParams();
+    const { initializeTrabajador } = useFormContext();
+
+    // Inicializar el trabajador si no existe
+    useEffect(() => {
+        if (numeroTrabajador) {
+            initializeTrabajador(numeroTrabajador);
+        }
+    }, [numeroTrabajador, initializeTrabajador]);
+
     return(
         <>
             <h2>REGISTRO 3</h2>
@@ -11,137 +23,137 @@ function Registro3(){
             <h3>1 TIPO DE REGISTRO</h3>
             <NumberInput value="03" readOnly={true}/>
             <h3>2 CUIL</h3>
-            <NumberInput maxLength={11} registro="registro3" field="cuil"/>
+            <NumberInput maxLength={11} registro="registro3" field="cuil" numeroTrabajador={numeroTrabajador}/>
             <h3>3 REMUNERACIÓN BRUTA GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionBrutaGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionBrutaGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>4 RETRIBUCIONES NO HABITUALES GRAVADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="retribucionesNoHabituales"/>
+            <NumberInput maxLength={15} registro="registro3" field="retribucionesNoHabituales" numeroTrabajador={numeroTrabajador}/>
             <h3>5 SAC PRIMERA CUOTA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="sacPrimeraCuota"/>
+            <NumberInput maxLength={15} registro="registro3" field="sacPrimeraCuota" numeroTrabajador={numeroTrabajador}/>
             <h3>6 SAC SEGUNDA CUOTA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="sacSegundaCuota"/>
+            <NumberInput maxLength={15} registro="registro3" field="sacSegundaCuota" numeroTrabajador={numeroTrabajador}/>
             <h3>7 HORAS EXTRAS GRAVADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="horasExtrasGravadas"/>
+            <NumberInput maxLength={15} registro="registro3" field="horasExtrasGravadas" numeroTrabajador={numeroTrabajador}/>
             <h3>8 MOVILIDAD Y VIÁTICOS REMUNERACION GRAVADA</h3>
             <NumberInput value="0" readOnly={true}/>
             <h3>9 PERSONAL DOCENTE - MATERIAL DIDÁCTICO GRAVADO</h3>
-            <NumberInput maxLength={15} registro="registro3" field="personalDocenteMaterialDidacticoGravado"/>
+            <NumberInput maxLength={15} registro="registro3" field="personalDocenteMaterialDidacticoGravado" numeroTrabajador={numeroTrabajador}/>
             <h3>10 REMUNERACIÓN NO ALCANZADA/EXENTA (SIN HORAS EXTRAS)</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionNoAlcanzada"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionNoAlcanzada" numeroTrabajador={numeroTrabajador}/>
             <h3>11 REMUNERACIÓN EXENTA HORAS EXTRAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionExentaHorasExtras"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionExentaHorasExtras" numeroTrabajador={numeroTrabajador}/>
             <h3>12 MOVILIDAD Y VIÁTICOS REMUNERACIÓN EXENTA</h3>
             <NumberInput value="0" readOnly={true}/>
             <h3>13 PERSONAL DOCENTE - MATERIAL DIDÁCTICO EXENTO</h3>
-            <NumberInput maxLength={15} registro="registro3" field="personalDocenteMaterialDidacticoExento"/>
+            <NumberInput maxLength={15} registro="registro3" field="personalDocenteMaterialDidacticoExento" numeroTrabajador={numeroTrabajador}/>
             <h3>14 REMUNERACIÓN OTROS EMPLEOS - REMUNERACIÓN BRUTA GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosBrutaGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosBrutaGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>15 REMUNERACIÓN OTROS EMPLEOS - RETRIBUCIONES NO HABITUALES GRAVADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosRetribucionesNoHabituales"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosRetribucionesNoHabituales" numeroTrabajador={numeroTrabajador}/>
             <h3>16 REMUNERACIÓN OTROS EMPLEOS - SAC PRIMERA CUOTA GRAVADO</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosSacPrimera"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosSacPrimera" numeroTrabajador={numeroTrabajador}/>
             <h3>17 REMUNERACIÓN OTROS EMPLEOS - SAC SEGUNDA CUOTA GRAVADO</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosSacSegunda"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosSacSegunda" numeroTrabajador={numeroTrabajador}/>
             <h3>18 REMUNERACIÓN OTROS EMPLEOS - HORAS EXTRAS GRAVADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosHorasExtras"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosHorasExtras" numeroTrabajador={numeroTrabajador}/>
             <h3>19 REMUNERACIÓN OTROS EMPLEOS - MOVILIDAD Y VIÁTICOS GRAVADA</h3>
             <NumberInput value="0" readOnly={true}/>
             <h3>20 REMUNERACIÓN OTROS EMPLEOS - DOCENTE MATERIAL DIDÁCTICO GRAVADO</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosDocenteMaterialGravado"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosDocenteMaterialGravado" numeroTrabajador={numeroTrabajador}/>
             <h3>21 REMUNERACIÓN OTROS EMPLEOS - NO ALCANZADA/EXENTA (SIN HORAS EXTRAS)</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosNoAlcanzada"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosNoAlcanzada" numeroTrabajador={numeroTrabajador}/>
             <h3>22 REMUNERACIÓN OTROS EMPLEOS - EXENTA HORAS EXTRAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosExentaHorasExtras"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosExentaHorasExtras" numeroTrabajador={numeroTrabajador}/>
             <h3>23 REMUNERACIÓN OTROS EMPLEOS - MOVILIDAD Y VIÁTICOS EXENTA</h3>
             <NumberInput value="0" readOnly={true}/>
             <h3>24 REMUNERACIÓN OTROS EMPLEOS - DOCENTE MATERIAL DIDÁCTICO EXENTO</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosDocenteMaterialExento"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosDocenteMaterialExento" numeroTrabajador={numeroTrabajador}/>
             <h3>25 REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>26 REMUNERACIÓN NO GRAVADA / NO ALCANZADA / EXENTA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionNoGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionNoGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>27 TOTAL REMUNERACIONES</h3>
-            <NumberInput maxLength={15} registro="registro3" field="totalRemuneraciones"/>
+            <NumberInput maxLength={15} registro="registro3" field="totalRemuneraciones" numeroTrabajador={numeroTrabajador}/>
             <h3>28 RETRIBUCIONES NO HABITUALES EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="retribucionesNoHabitualesExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="retribucionesNoHabitualesExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>29 SAC PRIMERA CUOTA EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="sacPrimeraCuotaExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="sacPrimeraCuotaExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>30 SAC SEGUNDA CUOTA EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="sacSegundaCuotaExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="sacSegundaCuotaExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>31 AJUSTES PERÍODOS ANTERIORES - REMUNERACIONES GRAVADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="ajustesPeriodosAnterioresGravadas"/>
+            <NumberInput maxLength={15} registro="registro3" field="ajustesPeriodosAnterioresGravadas" numeroTrabajador={numeroTrabajador}/>
             <h3>32 AJUSTES PERÍODOS ANTERIORES - REMUNERACIONES EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="ajustesPeriodosAnterioresExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="ajustesPeriodosAnterioresExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>33 Otros Empleos - RETRIBUCIONES NO HABITUALES EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosRetribucionesNoHabitualesExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosRetribucionesNoHabitualesExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>34 Otros Empleos - SAC PRIMERA CUOTA EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosSacPrimeraCuotaExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosSacPrimeraCuotaExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>35 Otros Empleos - SAC SEGUNDA CUOTA EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosSacSegundaCuotaExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosSacSegundaCuotaExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>36 Otros Empleos - AJUSTES PERÍODOS ANTERIORES - REMUNERACIONES GRAVADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosAjustesPeriodosAnterioresGravadas"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosAjustesPeriodosAnterioresGravadas" numeroTrabajador={numeroTrabajador}/>
             <h3>37 Otros Empleos - AJUSTES PERÍODOS ANTERIORES - REMUNERACIONES EXENTAS / NO ALCANZADAS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosAjustesPeriodosAnterioresExentas"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosAjustesPeriodosAnterioresExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>38 REMUNERACIÓN EXENTA LEY 27.718</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionExentaLey27718"/>
+            <NumberInput maxLength={15} registro="registro3" field="remuneracionExentaLey27718" numeroTrabajador={numeroTrabajador}/>
             <h3>39 Otros Empleos - REMUNERACIÓN EXENTA LEY 27.718</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosRemuneracionExentaLey27718"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosRemuneracionExentaLey27718" numeroTrabajador={numeroTrabajador}/>
             <h3>40 BONOS PRODUCTIVIDAD GRAVADOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="bonosProductividadGravados"/>
+            <NumberInput maxLength={15} registro="registro3" field="bonosProductividadGravados" numeroTrabajador={numeroTrabajador}/>
             <h3>41 FALLOS DE CAJA GRAVADOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="fallosCajaGravados"/>
+            <NumberInput maxLength={15} registro="registro3" field="fallosCajaGravados" numeroTrabajador={numeroTrabajador}/>
             <h3>42 CONCEPTOS DE SIMILAR NATURALEZA GRAVADOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="conceptosSimilarNaturalezaGravados"/>
+            <NumberInput maxLength={15} registro="registro3" field="conceptosSimilarNaturalezaGravados" numeroTrabajador={numeroTrabajador}/>
             <h3>43 BONOS DE PRODUCTIVIDAD EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="bonosProductividadExentos"/>
+            <NumberInput maxLength={15} registro="registro3" field="bonosProductividadExentos" numeroTrabajador={numeroTrabajador}/>
             <h3>44 FALLOS DE CAJA EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="fallosCajaExentos"/>
+            <NumberInput maxLength={15} registro="registro3" field="fallosCajaExentos" numeroTrabajador={numeroTrabajador}/>
             <h3>45 CONCEPTOS DE SIMILAR NATURALEZA EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="conceptosSimilarNaturalezaExentos"/>
+            <NumberInput maxLength={15} registro="registro3" field="conceptosSimilarNaturalezaExentos" numeroTrabajador={numeroTrabajador}/>
             <h3>46 COMPENSACIÓN GASTOS TELETRABAJO EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="compensacionGastosTeletrabajoExentos"/>
+            <NumberInput maxLength={15} registro="registro3" field="compensacionGastosTeletrabajoExentos" numeroTrabajador={numeroTrabajador}/>
             <h3>47 PERSONAL MILITAR - SUPLEMENTOS ARTICULO 57 LEY 19.101 - EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="personalMilitarSuplemetos"/>
+            <NumberInput maxLength={15} registro="registro3" field="personalMilitarSuplemetos" numeroTrabajador={numeroTrabajador}/>
             <h3>48 Otros Empleos - BONOS DE PRODUCTIVIDAD GRAVADOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosBonosProductividadGravados"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosBonosProductividadGravados" numeroTrabajador={numeroTrabajador}/>
             <h3>49 Otros Empleos - FALLOS DE CAJA GRAVADOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosFallosCajaGravados"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosFallosCajaGravados" numeroTrabajador={numeroTrabajador}/>
             <h3>50 Otros Empleos - CONCEPTOS DE SIMILAR NATURALEZA GRAVADOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosConceptosSimilarGravados"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosConceptosSimilarGravados" numeroTrabajador={numeroTrabajador}/>
             <h3>51 Otros Empleos - BONOS DE PRODUCTIVIDAD EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosBonosProductividadExentos"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosBonosProductividadExentos" numeroTrabajador={numeroTrabajador}/>
             <h3>52 Otros Empleos - FALLOS DE CAJA EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosFallosCajaExentos"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosFallosCajaExentos" numeroTrabajador={numeroTrabajador}/>
             <h3>53 Otros Empleos - CONCEPTOS DE SIMILAR NATURALEZA EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosConceptosSimilarExentos"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosConceptosSimilarExentos" numeroTrabajador={numeroTrabajador}/>
             <h3>54 Otros Empleos - COMPENSACIÓN GASTOS TELETRABAJO EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosCompensacionTeletrabajo"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosCompensacionTeletrabajo" numeroTrabajador={numeroTrabajador}/>
             <h3>55 Otros Empleos - PERSONAL MILITAR - SUPLEMENTOS ARTICULO 57 LEY 19.101 - EXENTOS</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosPersonalMilitarSuplemetos"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosPersonalMilitarSuplemetos" numeroTrabajador={numeroTrabajador}/>
             <h3>56 Cantidad Bonos de productividad</h3>
-            <NumberInput maxLength={2} registro="registro3" field="cantidadBonosProductividad"/>
+            <NumberInput maxLength={2} registro="registro3" field="cantidadBonosProductividad" numeroTrabajador={numeroTrabajador}/>
             <h3>57 Cantidad de Fallos de caja</h3>
-            <NumberInput maxLength={2} registro="registro3" field="cantidadFallosCaja"/>
+            <NumberInput maxLength={2} registro="registro3" field="cantidadFallosCaja" numeroTrabajador={numeroTrabajador}/>
             <h3>58 Cantidad de Conceptos de similar naturaleza</h3>
-            <NumberInput maxLength={2} registro="registro3" field="cantidadConceptosSimilar"/>
+            <NumberInput maxLength={2} registro="registro3" field="cantidadConceptosSimilar" numeroTrabajador={numeroTrabajador}/>
             <h3>59 Cantidad Otros EMPLEOS BONOS DE PRODUCTIVIDAD</h3>
-            <NumberInput maxLength={2} registro="registro3" field="cantidadOtrosEmpleosBonosProductividad"/>
+            <NumberInput maxLength={2} registro="registro3" field="cantidadOtrosEmpleosBonosProductividad" numeroTrabajador={numeroTrabajador}/>
             <h3>60 Cantidad de Otros Empleos FALLOS DE CAJA</h3>
-            <NumberInput maxLength={2} registro="registro3" field="cantidadOtrosEmpleosFallosCaja"/>
+            <NumberInput maxLength={2} registro="registro3" field="cantidadOtrosEmpleosFallosCaja" numeroTrabajador={numeroTrabajador}/>
             <h3>61 Cantidad de Otros Empleos CONCEPTOS DE SIMILAR NATURALEZA</h3>
-            <NumberInput maxLength={2} registro="registro3" field="cantidadOtrosEmpleosConceptosSimilar"/>
+            <NumberInput maxLength={2} registro="registro3" field="cantidadOtrosEmpleosConceptosSimilar" numeroTrabajador={numeroTrabajador}/>
             <h3>62 MOVILIDAD REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="movilidadRemuneracionGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="movilidadRemuneracionGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>63 VIÁTICOS REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="viaticosRemuneracionGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="viaticosRemuneracionGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>64 COMPENSACIÓN ANÁLOGOS REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="compensacionAnalogosGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="compensacionAnalogosGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>65 REMUNERACIÓN OTROS EMPLEOS - MOVILIDAD REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosMovilidadGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosMovilidadGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>66 REMUNERACIÓN OTROS EMPLEOS - VIÁTICOS REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosViaticosGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosViaticosGravada" numeroTrabajador={numeroTrabajador}/>
             <h3>67 REMUNERACIÓN OTROS EMPLEOS - COMPENSACIÓN ANÁLOGOS REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosCompensacionAnalogosGravada"/>
+            <NumberInput maxLength={15} registro="registro3" field="otrosEmpleosCompensacionAnalogosGravada" numeroTrabajador={numeroTrabajador}/>
             <br/>
             <hr/>
         </>
