@@ -26,11 +26,31 @@ function DateInput(props) {
         return getFieldValue(props.registro, props.field, props.numeroTrabajador) || props.value || '';
     };
 
+    // Determinar el tipo de input basado en props
+    const getInputType = () => {
+        if (props.inputType === 'month') return 'month';
+        if (props.inputType === 'year') return 'number';
+        return 'date';
+    };
+
+    // Para input tipo año, necesitamos props adicionales
+    const getYearProps = () => {
+        if (props.inputType === 'year') {
+            return {
+                min: 2000,
+                max: 2099,
+                placeholder: "YYYY"
+            };
+        }
+        return {};
+    };
+
     return (
         <input 
-            type="date" 
+            type={getInputType()}
             value={getValue()}
             onChange={handleChange}
+            {...getYearProps()}
         />
     )
 }

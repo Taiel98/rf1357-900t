@@ -5,7 +5,7 @@ import { useFormContext } from "../Context/FormContext";
 
 function Registro3(){
     const { numeroTrabajador } = useParams();
-    const { initializeTrabajador } = useFormContext();
+    const { initializeTrabajador, getFieldValue, updateFormData } = useFormContext();
 
     // Inicializar el trabajador si no existe
     useEffect(() => {
@@ -13,6 +13,182 @@ function Registro3(){
             initializeTrabajador(numeroTrabajador);
         }
     }, [numeroTrabajador, initializeTrabajador]);
+
+    // Función para calcular la remuneración gravada
+    const calcularRemuneracionGravada = () => {
+        const campos = [
+            'remuneracionBrutaGravada',
+            'retribucionesNoHabituales',
+            'sacPrimeraCuota',
+            'sacSegundaCuota',
+            'horasExtrasGravadas',
+            'movilidadRemuneracionGravada',
+            'viaticosRemuneracionGravada',
+            'compensacionAnalogosGravada',
+            'personalDocenteMaterialDidacticoGravado',
+            'bonosProductividadGravados',
+            'fallosCajaGravados',
+            'conceptosSimilarNaturalezaGravados',
+            'ajustesPeriodosAnterioresGravadas',
+            'remuneracionOtrosEmpleosBrutaGravada',
+            'remuneracionOtrosEmpleosRetribucionesNoHabituales',
+            'remuneracionOtrosEmpleosSacPrimera',
+            'remuneracionOtrosEmpleosSacSegunda',
+            'remuneracionOtrosEmpleosHorasExtras',
+            'remuneracionOtrosEmpleosDocenteMaterialGravado',
+            'otrosEmpleosMovilidadGravada',
+            'otrosEmpleosViaticosGravada',
+            'otrosEmpleosCompensacionAnalogosGravada',
+            'remuneracionOtrosEmpleosDocenteMaterialGravado',
+            'otrosEmpleosBonosProductividadGravados',
+            'otrosEmpleosFallosCajaGravados',
+            'otrosEmpleosConceptosSimilarGravados',
+            'otrosEmpleosAjustesPeriodosAnterioresGravadas'
+        ];
+
+        let total = 0;
+        campos.forEach(campo => {
+            const valor = getFieldValue('registro3', campo, numeroTrabajador);
+            const numero = parseFloat(valor) || 0;
+            total += numero;
+        });
+        return total.toString();
+    };
+    // Función para calcular el total de remuneraciones
+    const calcularTotalRemuneraciones = () => {
+        const remuneracionGravada = parseFloat(calcularRemuneracionGravada()) || 0;
+        const remuneracionNoGravada = parseFloat(calcularRemuneracionNoGravada()) || 0;
+        
+        const total = remuneracionGravada + remuneracionNoGravada;
+        
+        // No puede ser menor a cero, en ese caso informar con valor cero
+        return Math.max(0, total).toString();
+    };
+
+    // Función para calcular la remuneración no gravada
+    const calcularRemuneracionNoGravada = () => {
+        const campos = [
+            'remuneracionNoAlcanzada',
+            'remuneracionExentaHorasExtras',
+            'personalDocenteMaterialDidacticoExento',
+            'remuneracionOtrosEmpleosNoAlcanzada',
+            'remuneracionOtrosEmpleosExentaHorasExtras',
+            'remuneracionOtrosEmpleosDocenteMaterialExento',
+            'retribucionesNoHabitualesExentas',
+            'sacPrimeraCuotaExentas',
+            'sacSegundaCuotaExentas',
+            'ajustesPeriodosAnterioresExentas',
+            'otrosEmpleosRetribucionesNoHabitualesExentas',
+            'otrosEmpleosSacPrimeraCuotaExentas',
+            'otrosEmpleosSacSegundaCuotaExentas',
+            'otrosEmpleosAjustesPeriodosAnterioresExentas',
+            'remuneracionExentaLey27718',
+            'otrosEmpleosRemuneracionExentaLey27718',
+            'bonosProductividadExentos',
+            'fallosCajaExentos',
+            'conceptosSimilarNaturalezaExentos',
+            'compensacionGastosTeletrabajoExentos',
+            'personalMilitarSuplemetos',
+            'otrosEmpleosBonosProductividadExentos',
+            'otrosEmpleosFallosCajaExentos',
+            'otrosEmpleosConceptosSimilarExentos',
+            'otrosEmpleosCompensacionTeletrabajo',
+            'otrosEmpleosPersonalMilitarSuplemetos'
+        ];
+
+        let total = 0;
+        campos.forEach(campo => {
+            const valor = getFieldValue('registro3', campo, numeroTrabajador);
+            const numero = parseFloat(valor) || 0;
+            total += numero;
+        });
+
+        return total.toString();
+    };
+
+    // Effect para recalcular automáticamente cuando cambien los campos
+    useEffect(() => {
+        if (numeroTrabajador) {
+            // Calcular remuneración gravada
+            const remuneracionGravada = calcularRemuneracionGravada();
+            const valorActualGravada = getFieldValue('registro3', 'remuneracionGravada', numeroTrabajador);
+            
+            if (remuneracionGravada !== valorActualGravada) {
+                updateFormData('registro3', 'remuneracionGravada', remuneracionGravada, numeroTrabajador);
+            }
+
+            // Calcular remuneración no gravada
+            const remuneracionNoGravada = calcularRemuneracionNoGravada();
+            const valorActualNoGravada = getFieldValue('registro3', 'remuneracionNoGravada', numeroTrabajador);
+            
+            // Calcular total de remuneraciones
+            const totalRemuneraciones = calcularTotalRemuneraciones();
+            const valorActualTotal = getFieldValue('registro3', 'totalRemuneraciones', numeroTrabajador);
+            
+            if (totalRemuneraciones !== valorActualTotal) {
+                updateFormData('registro3', 'totalRemuneraciones', totalRemuneraciones, numeroTrabajador);
+            }
+        }
+    }, [
+        // Campos para remuneración gravada
+        getFieldValue('registro3', 'remuneracionBrutaGravada', numeroTrabajador),
+        getFieldValue('registro3', 'retribucionesNoHabituales', numeroTrabajador),
+        getFieldValue('registro3', 'sacPrimeraCuota', numeroTrabajador),
+        getFieldValue('registro3', 'sacSegundaCuota', numeroTrabajador),
+        getFieldValue('registro3', 'horasExtrasGravadas', numeroTrabajador),
+        getFieldValue('registro3', 'movilidadRemuneracionGravada', numeroTrabajador),
+        getFieldValue('registro3', 'viaticosRemuneracionGravada', numeroTrabajador),
+        getFieldValue('registro3', 'compensacionAnalogosGravada', numeroTrabajador),
+        getFieldValue('registro3', 'personalDocenteMaterialDidacticoGravado', numeroTrabajador),
+        getFieldValue('registro3', 'bonosProductividadGravados', numeroTrabajador),
+        getFieldValue('registro3', 'fallosCajaGravados', numeroTrabajador),
+        getFieldValue('registro3', 'conceptosSimilarNaturalezaGravados', numeroTrabajador),
+        getFieldValue('registro3', 'ajustesPeriodosAnterioresGravadas', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosBrutaGravada', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosRetribucionesNoHabituales', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosSacPrimera', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosSacSegunda', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosHorasExtras', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosDocenteMaterialGravado', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosMovilidadGravada', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosViaticosGravada', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosCompensacionAnalogosGravada', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosDocenteMaterialGravado', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosBonosProductividadGravados', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosFallosCajaGravados', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosConceptosSimilarGravados', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosAjustesPeriodosAnterioresGravadas', numeroTrabajador),
+        
+        // Campos para remuneración no gravada
+        getFieldValue('registro3', 'remuneracionNoAlcanzada', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionExentaHorasExtras', numeroTrabajador),
+        getFieldValue('registro3', 'personalDocenteMaterialDidacticoExento', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosNoAlcanzada', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosExentaHorasExtras', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionOtrosEmpleosDocenteMaterialExento', numeroTrabajador),
+        getFieldValue('registro3', 'retribucionesNoHabitualesExentas', numeroTrabajador),
+        getFieldValue('registro3', 'sacPrimeraCuotaExentas', numeroTrabajador),
+        getFieldValue('registro3', 'sacSegundaCuotaExentas', numeroTrabajador),
+        getFieldValue('registro3', 'ajustesPeriodosAnterioresExentas', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosRetribucionesNoHabitualesExentas', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosSacPrimeraCuotaExentas', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosSacSegundaCuotaExentas', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosAjustesPeriodosAnterioresExentas', numeroTrabajador),
+        getFieldValue('registro3', 'remuneracionExentaLey27718', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosRemuneracionExentaLey27718', numeroTrabajador),
+        getFieldValue('registro3', 'bonosProductividadExentos', numeroTrabajador),
+        getFieldValue('registro3', 'fallosCajaExentos', numeroTrabajador),
+        getFieldValue('registro3', 'conceptosSimilarNaturalezaExentos', numeroTrabajador),
+        getFieldValue('registro3', 'compensacionGastosTeletrabajoExentos', numeroTrabajador),
+        getFieldValue('registro3', 'personalMilitarSuplemetos', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosBonosProductividadExentos', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosFallosCajaExentos', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosConceptosSimilarExentos', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosCompensacionTeletrabajo', numeroTrabajador),
+        getFieldValue('registro3', 'otrosEmpleosPersonalMilitarSuplemetos', numeroTrabajador),
+        
+        numeroTrabajador
+    ]);
 
     return(
         <>
@@ -68,12 +244,56 @@ function Registro3(){
             <NumberInput value="0" readOnly={true}/>
             <h3>24 REMUNERACIÓN OTROS EMPLEOS - DOCENTE MATERIAL DIDÁCTICO EXENTO</h3>
             <NumberInput maxLength={15} registro="registro3" field="remuneracionOtrosEmpleosDocenteMaterialExento" numeroTrabajador={numeroTrabajador}/>
-            <h3>25 REMUNERACIÓN GRAVADA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionGravada" numeroTrabajador={numeroTrabajador}/>
-            <h3>26 REMUNERACIÓN NO GRAVADA / NO ALCANZADA / EXENTA</h3>
-            <NumberInput maxLength={15} registro="registro3" field="remuneracionNoGravada" numeroTrabajador={numeroTrabajador}/>
-            <h3>27 TOTAL REMUNERACIONES</h3>
-            <NumberInput maxLength={15} registro="registro3" field="totalRemuneraciones" numeroTrabajador={numeroTrabajador}/>
+            
+            <h3>25 REMUNERACIÓN GRAVADA 
+                <span style={{color: '#28a745', fontSize: '14px', fontWeight: 'normal'}}>
+                    (CALCULADO AUTOMÁTICAMENTE)
+                </span>
+            </h3>
+            <NumberInput 
+                maxLength={15} 
+                registro="registro3" 
+                field="remuneracionGravada" 
+                numeroTrabajador={numeroTrabajador}
+                readOnly={true}
+                value={calcularRemuneracionGravada()}
+            />
+            <small style={{color: '#666', display: 'block', marginTop: '5px'}}>
+                Este campo se calcula automáticamente como la suma de todos los campos de remuneración gravada
+            </small>
+            
+            <h3>26 REMUNERACIÓN NO GRAVADA / NO ALCANZADA / EXENTA
+                <span style={{color: '#28a745', fontSize: '14px', fontWeight: 'normal'}}>
+                    (CALCULADO AUTOMÁTICAMENTE)
+                </span>
+            </h3>
+            <NumberInput 
+                maxLength={15} 
+                registro="registro3" 
+                field="remuneracionNoGravada" 
+                numeroTrabajador={numeroTrabajador}
+                readOnly={true}
+                value={calcularRemuneracionNoGravada()}
+            />
+            <small style={{color: '#666', display: 'block', marginTop: '5px'}}>
+                Este campo se calcula automáticamente como la suma de todos los campos de remuneración no gravada/exenta
+            </small>
+            <h3>27 TOTAL REMUNERACIONES
+                <span style={{color: '#28a745', fontSize: '14px', fontWeight: 'normal'}}>
+                    (CALCULADO AUTOMÁTICAMENTE)
+                </span>
+            </h3>
+            <NumberInput 
+                maxLength={15} 
+                registro="registro3" 
+                field="totalRemuneraciones" 
+                numeroTrabajador={numeroTrabajador}
+                readOnly={true}
+                value={calcularTotalRemuneraciones()}
+            />
+            <small style={{color: '#666', display: 'block', marginTop: '5px'}}>
+                Este campo se calcula como: Remuneración Gravada + Remuneración No Gravada (mínimo 0)
+            </small>
             <h3>28 RETRIBUCIONES NO HABITUALES EXENTAS / NO ALCANZADAS</h3>
             <NumberInput maxLength={15} registro="registro3" field="retribucionesNoHabitualesExentas" numeroTrabajador={numeroTrabajador}/>
             <h3>29 SAC PRIMERA CUOTA EXENTAS / NO ALCANZADAS</h3>
