@@ -3,6 +3,7 @@ import NumberInput from '../Components/NumberInput';
 import DateInput from "../Components/DateInput"
 import SelectInput from "../Components/SelectInput";
 import OptionInput from "../Components/OptionInput";
+import FileLoader from "../Components/FileLoader";
 import { Link } from "react-router-dom";
 import { useFormContext } from "../Context/FormContext";
 
@@ -30,6 +31,9 @@ function Registro1(){
 
     return(
         <>
+            {/* Componente para cargar archivo */}
+            <FileLoader />
+            
             <h2>REGISTRO 1</h2>
             <br/>
             <h1>CABECERA ENCRIPTADA</h1>

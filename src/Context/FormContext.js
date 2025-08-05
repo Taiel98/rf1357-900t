@@ -24,6 +24,11 @@ export const FormProvider = ({ children }) => {
     trabajadores: {}
   });
 
+  // Función para reemplazar completamente el formData (para cargar archivos)
+  const setCompleteFormData = (newFormData) => {
+    setFormData(newFormData);
+  };
+
   // Función para inicializar un trabajador si no existe
   const initializeTrabajador = (numeroTrabajador) => {
     const trabajadorKey = `trabajador_${numeroTrabajador}`;
@@ -261,7 +266,8 @@ export const FormProvider = ({ children }) => {
       formData,
       updateFormData,
       getFieldValue,
-      initializeTrabajador
+      initializeTrabajador,
+      setFormData: setCompleteFormData
     }}>
       {children}
     </FormContext.Provider>
